@@ -528,16 +528,22 @@
     into-stream "^4.0.0"
     lodash "^4.17.4"
 
-"@thundra/core@^2.2.3":
-  version "2.2.3"
-  resolved "https://registry.yarnpkg.com/@thundra/core/-/core-2.2.3.tgz#f7caa1a98020a1f80b5bbe0339846b0ecc563fbc"
-  integrity sha512-LAXgb9Q0YAbjVoASZvNrU41BpV3RuUYSnnTbHvv0kx/1XxBDdxcMFUqLJJ6hXP5s646hT2QnB2/GtUJ1fXJhbw==
+"@thundra/core@^2.5.1":
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/@thundra/core/-/core-2.5.1.tgz#b06500899f3a546b1d38c569fe4f5d5910350771"
+  integrity sha512-leJp51aXTjG59VMIzrFkg2O0yahc5E07iuj7S0ddLJocKri3c07RTYqLsAterypqSkc3ATkI3CmW5+tFLU7PPA==
   dependencies:
     "@thundra/warmup" "1.0.0"
     falafel "^2.1.0"
     koalas "^1.0.2"
+    lodash.flatten "^4.4.0"
+    lodash.get "^4.4.2"
+    lodash.has "^4.5.2"
+    lodash.trim "^4.5.1"
+    md5 "^2.2.1"
     minimatch "^3.0.4"
-    require-in-the-middle "^3.1.0"
+    module-details-from-path "^1.0.3"
+    rollup "^1.16.2"
     semver "^5.5.0"
     shimmer "^1.2.0"
     uuid "^3.2.1"
@@ -550,6 +556,16 @@
 "@tophat/eslint-config@^0.1.4":
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/@tophat/eslint-config/-/eslint-config-0.1.4.tgz#10a22f1dfbec1bec30da250c1c89efde159d121a"
+
+"@types/estree@0.0.39":
+  version "0.0.39"
+  resolved "https://registry.yarnpkg.com/@types/estree/-/estree-0.0.39.tgz#e177e699ee1b8c22d23174caaa7422644389509f"
+  integrity sha512-EYNwp3bU+98cpU4lAWYYL7Zz+2gryWH1qbdDTidVd6hkiR6weksdbMadyXKXNPEkQFhXM+hVO9ZygomHXp+AIw==
+
+"@types/node@^12.0.10":
+  version "12.0.10"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-12.0.10.tgz#51babf9c7deadd5343620055fc8aff7995c8b031"
+  integrity sha512-LcsGbPomWsad6wmMNv7nBLw7YYYyfdYcz6xryKYQhx89c3XXan+8Q6AJ43G5XDIaklaVkK3mE4fCb0SBvMiPSQ==
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.0"
@@ -766,7 +782,7 @@ acorn@^6.0.1, acorn@^6.0.2:
   version "6.0.6"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-6.0.6.tgz#cd75181670d5b99bdb1b1c993941d3a239ab1f56"
 
-acorn@^6.0.5:
+acorn@^6.0.5, acorn@^6.1.1:
   version "6.1.1"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-6.1.1.tgz#7d25ae05bb8ad1f9b699108e1094ecd7884adc1f"
   integrity sha512-jPTiwtOxaHNaAPg/dmrJ/beuzLRnXtB0kQPQ8JpotKJgTB6rX6c8mlf315941pyjBSaPg8NHXS9fhP4u17DpGA==
@@ -5258,9 +5274,19 @@ lodash.escaperegexp@^4.1.2:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/lodash.escaperegexp/-/lodash.escaperegexp-4.1.2.tgz#64762c48618082518ac3df4ccf5d5886dae20347"
 
+lodash.flatten@^4.4.0:
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/lodash.flatten/-/lodash.flatten-4.4.0.tgz#f31c22225a9632d2bbf8e4addbef240aa765a61f"
+  integrity sha1-8xwiIlqWMtK7+OSt2+8kCqdlph8=
+
 lodash.get@^4.4.2:
   version "4.4.2"
   resolved "https://registry.yarnpkg.com/lodash.get/-/lodash.get-4.4.2.tgz#2d177f652fa31e939b4438d5341499dfa3825e99"
+
+lodash.has@^4.5.2:
+  version "4.5.2"
+  resolved "https://registry.yarnpkg.com/lodash.has/-/lodash.has-4.5.2.tgz#d19f4dc1095058cccbe2b0cdf4ee0fe4aa37c862"
+  integrity sha1-0Z9NwQlQWMzL4rDN9O4P5Ko3yGI=
 
 lodash.includes@^4.3.0:
   version "4.3.0"
@@ -5321,6 +5347,11 @@ lodash.sortby@^4.7.0:
 lodash.toarray@^4.4.0:
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/lodash.toarray/-/lodash.toarray-4.4.0.tgz#24c4bfcd6b2fba38bfd0594db1179d8e9b656561"
+
+lodash.trim@^4.5.1:
+  version "4.5.1"
+  resolved "https://registry.yarnpkg.com/lodash.trim/-/lodash.trim-4.5.1.tgz#36425e7ee90be4aa5e27bcebb85b7d11ea47aa57"
+  integrity sha1-NkJefukL5KpeJ7zruFt9EepHqlc=
 
 lodash.union@~4.6.0:
   version "4.6.0"
@@ -7344,14 +7375,6 @@ require-directory@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/require-directory/-/require-directory-2.1.1.tgz#8c64ad5fd30dab1c976e2344ffe7f792a6a6df42"
 
-require-in-the-middle@^3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/require-in-the-middle/-/require-in-the-middle-3.1.0.tgz#faf4b947c8d8d2588ae4f246487e2d7262add1a4"
-  integrity sha512-90uK2zPUGdXZSz8eI5pHHvTl3qZRZ5FHxSOnjIYIwczRcP+fjokavi//UeN9i3i2O7UWCZHTgZtrrudpusSo1g==
-  dependencies:
-    module-details-from-path "^1.0.3"
-    resolve "^1.5.0"
-
 require-main-filename@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/require-main-filename/-/require-main-filename-1.0.1.tgz#97f717b69d48784f5f526a6c5aa8ffdda055a4d1"
@@ -7451,6 +7474,15 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
   dependencies:
     hash-base "^3.0.0"
     inherits "^2.0.1"
+
+rollup@^1.16.2:
+  version "1.16.4"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-1.16.4.tgz#0a13bace39cf6c1784781e383e605d1b6274c2f4"
+  integrity sha512-Bht8QXoo2dJc8lUGyEMfnfKCV7hkf1oLzN6L8YdDE2toaaoCe5DxoqYjTyKswWQyiZseViZw9quEdDRz0YXifw==
+  dependencies:
+    "@types/estree" "0.0.39"
+    "@types/node" "^12.0.10"
+    acorn "^6.1.1"
 
 rsvp@^3.3.3:
   version "3.6.2"
