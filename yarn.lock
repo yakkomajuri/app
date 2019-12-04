@@ -540,9 +540,10 @@
   resolved "https://registry.yarnpkg.com/@thundra/warmup/-/warmup-1.0.0.tgz#5060479460f0e674f0270fd22fea5405e34b629b"
   integrity sha512-GRUrQLYz3ffq4uGUPEet5C9prSlgHjcNMSk/mnPo9ASJB01oiZU1iDQ1mnCUW66O5ecXv49zGUtbz0Nh2s0xeQ==
 
-"@tophat/eslint-config@^0.1.4":
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/@tophat/eslint-config/-/eslint-config-0.1.4.tgz#10a22f1dfbec1bec30da250c1c89efde159d121a"
+"@tophat/eslint-config@^0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@tophat/eslint-config/-/eslint-config-0.4.0.tgz#eca7e04fcea11fc66eff988d0ab301d4b4c08a2f"
+  integrity sha512-xEedBuMbB1E3sY/BFby39S/JfcFjW2Ho3ujz13197Mi+AlnEiiL4DobgcoTz4jPN4wcKFyymrm7xFICpzkIb0Q==
 
 "@types/color-name@^1.1.1":
   version "1.1.1"
