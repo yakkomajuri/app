@@ -490,18 +490,34 @@
     into-stream "^4.0.0"
     lodash "^4.17.4"
 
-"@thundra/core@^2.2.3":
-  version "2.2.3"
-  resolved "https://registry.yarnpkg.com/@thundra/core/-/core-2.2.3.tgz#f7caa1a98020a1f80b5bbe0339846b0ecc563fbc"
+"@thundra/core@^2.9.11":
+  version "2.9.11"
+  resolved "https://registry.yarnpkg.com/@thundra/core/-/core-2.9.11.tgz#5ffe8166b27174f519096521aa38e1d6159d66e0"
+  integrity sha512-LF7ELknPlm2kJ5f5BiNi2GutvWuKT7saf1AyjbpHT3JA4kYl/o5uyJLRFfDSiJ9SLAG8RJTNQnxWSoCLInumMA==
   dependencies:
+    "@thundra/instrumenter" "^1.1.0"
     "@thundra/warmup" "1.0.0"
-    falafel "^2.1.0"
+    json-stringify-safe "^5.0.1"
     koalas "^1.0.2"
-    minimatch "^3.0.4"
+    lodash.flatten "^4.4.0"
+    lodash.get "^4.4.2"
+    lodash.has "^4.5.2"
+    lodash.trim "^4.5.1"
+    md5 "^2.2.1"
+    module-details-from-path "^1.0.3"
     require-in-the-middle "^3.1.0"
     semver "^5.5.0"
     shimmer "^1.2.0"
     uuid "^3.2.1"
+    ws "^7.2.1"
+
+"@thundra/instrumenter@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@thundra/instrumenter/-/instrumenter-1.1.0.tgz#2fe9ce9bfcac27bf2eae43a07c34082e70b91cc3"
+  integrity sha512-BCmPCIrnRBfQj/hLHxyq6VWERWwiF2/gUyornpDiyx8EcE09DOeypCKIOE0oUTe+zulI2uuWBBm0Cg2eAofzlw==
+  dependencies:
+    falafel "^2.1.0"
+    minimatch "^3.0.4"
 
 "@thundra/warmup@1.0.0":
   version "1.0.0"
@@ -4431,9 +4447,19 @@ lodash.escaperegexp@^4.1.2:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/lodash.escaperegexp/-/lodash.escaperegexp-4.1.2.tgz#64762c48618082518ac3df4ccf5d5886dae20347"
 
+lodash.flatten@^4.4.0:
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/lodash.flatten/-/lodash.flatten-4.4.0.tgz#f31c22225a9632d2bbf8e4addbef240aa765a61f"
+  integrity sha1-8xwiIlqWMtK7+OSt2+8kCqdlph8=
+
 lodash.get@^4.4.2:
   version "4.4.2"
   resolved "https://registry.yarnpkg.com/lodash.get/-/lodash.get-4.4.2.tgz#2d177f652fa31e939b4438d5341499dfa3825e99"
+
+lodash.has@^4.5.2:
+  version "4.5.2"
+  resolved "https://registry.yarnpkg.com/lodash.has/-/lodash.has-4.5.2.tgz#d19f4dc1095058cccbe2b0cdf4ee0fe4aa37c862"
+  integrity sha1-0Z9NwQlQWMzL4rDN9O4P5Ko3yGI=
 
 lodash.includes@^4.3.0:
   version "4.3.0"
@@ -4494,6 +4520,11 @@ lodash.sortby@^4.7.0:
 lodash.toarray@^4.4.0:
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/lodash.toarray/-/lodash.toarray-4.4.0.tgz#24c4bfcd6b2fba38bfd0594db1179d8e9b656561"
+
+lodash.trim@^4.5.1:
+  version "4.5.1"
+  resolved "https://registry.yarnpkg.com/lodash.trim/-/lodash.trim-4.5.1.tgz#36425e7ee90be4aa5e27bcebb85b7d11ea47aa57"
+  integrity sha1-NkJefukL5KpeJ7zruFt9EepHqlc=
 
 lodash.union@~4.6.0:
   version "4.6.0"
@@ -7653,6 +7684,11 @@ ws@^5.2.0:
   resolved "https://registry.yarnpkg.com/ws/-/ws-5.2.2.tgz#dffef14866b8e8dc9133582514d1befaf96e980f"
   dependencies:
     async-limiter "~1.0.0"
+
+ws@^7.2.1:
+  version "7.2.3"
+  resolved "https://registry.yarnpkg.com/ws/-/ws-7.2.3.tgz#a5411e1fb04d5ed0efee76d26d5c46d830c39b46"
+  integrity sha512-HTDl9G9hbkNDk98naoR/cHDws7+EyYMOdL1BmjsZXRUjf7d+MficC4B7HLUPlSiho0vg+CWKrGIt/VJBd1xunQ==
 
 xdg-basedir@^3.0.0:
   version "3.0.0"
