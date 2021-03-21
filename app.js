@@ -38,12 +38,32 @@ module.exports = (app) => {
     }
   });
 
-  app.on("pull_request.closed", async ({ log, payload }) => {
-    const pullRequest = payload.pull_request
+  app.on("pull_request.closed", async (context) => {
+    const pullRequest = context.payload.pull_request
     const members = await organizationMembers.getOrganizationMembers()
+    const who = pullRequest.user.login
 
-    if (!pullRequest.merged || members.has(pullRequest.user.login)) {
+    if (!pullRequest.merged || members.has(who)) {
       return
+    }
+
+
+    const log = context.log.child({
+      who,
+      action: "add",
+      contributions: ["code"]
+    });
+
+    try {
+      await processContribution({
+        who,
+        log,
+        contributions: ["code"],
+        context: context, 
+      })
+    } catch (error) {
+      const isKnownError = error instanceof AllContributorBotError;
+      context.log.info({ isKnownError, error: error.name }, error.message);
     }
 
   })
