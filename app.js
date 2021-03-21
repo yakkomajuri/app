@@ -59,7 +59,7 @@ module.exports = (app) => {
         who,
         log,
         contributions: ["code"],
-        context: context, 
+        context: context 
       })
     } catch (error) {
       const isKnownError = error instanceof AllContributorBotError;
