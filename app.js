@@ -1,8 +1,13 @@
 const isMessageByApp = require("./lib/is-message-by-app");
 const isMessageForApp = require("./lib/is-message-for-app");
 const CommentReply = require("./lib/modules/comment-reply");
-const processIssueComment = require("./lib/process-issue-comment");
+const { processIssueComment, processContribution } = require("./lib/process-issue-comment");
 const { AllContributorBotError } = require("./lib/modules/errors");
+const { OrganizationMembers } = require("./lib/organization-members");
+
+
+const organizationMembers = new OrganizationMembers()
+
 
 /**
  * @param {import('probot').Probot} app
@@ -32,6 +37,16 @@ module.exports = (app) => {
       await commentReply.send();
     }
   });
+
+  app.on("pull_request.closed", async ({ log, payload }) => {
+    const pullRequest = payload.pull_request
+    const members = await organizationMembers.getOrganizationMembers()
+
+    if (!pullRequest.merged || members.has(pullRequest.user.login)) {
+      return
+    }
+
+  })
 
   app.on(
     ["installation", "installation_repositories"],
