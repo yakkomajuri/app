@@ -13,6 +13,8 @@
   ],
   "scripts": {
     "start": "node ./app.js",
+    "start-prod": "npm install && forever start ./app.js",
+    "dev": "DEBUG=1 node ./app.js",
     "lint": "prettier --check '{src,test}/**/*.{js,json}' '*.{md,json,js}' 'contributing/*.md' '.github/**/*.{yml,md}'",
     "lint:fix": "prettier --write '{src,test}/**/*.{js,json}' '*.{md,json,js}' 'contributing/*.md' '.github/**/*.{yml,md}'",
     "test": "jest --coverage"
@@ -20,6 +22,7 @@
   "dependencies": {
     "@posthog/all-contributors-cli": "0.0.1",
     "compromise": "^11.13.0",
+    "forever": "^3.0.4",
     "mailgun-js": "^0.22.0",
     "node-fetch": "^2.6.1",
     "pg": "^8.5.1",
