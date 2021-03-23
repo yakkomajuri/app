@@ -94,7 +94,7 @@ const probotServer = new ProbotServer((app) => {
         db,
         contributions: ["code"],
         context: context,
-        pullRequestUrl: pullRequest.url
+        pullRequestUrl: pullRequest.html_url
       })
     } catch (error) {
       const isKnownError = error instanceof AllContributorBotError;

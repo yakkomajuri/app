@@ -21,6 +21,7 @@
     "@posthog/all-contributors-cli": "0.0.1",
     "compromise": "^11.13.0",
     "mailgun-js": "^0.22.0",
+    "node-fetch": "^2.6.1",
     "pg": "^8.5.1",
     "pino": "^6.9.0",
     "posthog-node": "^1.0.7",
