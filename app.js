@@ -63,7 +63,7 @@ const probotServer = new ProbotServer((app) => {
       await commentReply.send();
     }
 
-    await db.handleNewContribution('')
+    await db.handleNewContribution('hello')
 
   });
 
