@@ -5,19 +5,40 @@ const { processIssueComment, processContribution } = require("./lib/process-issu
 const { AllContributorBotError } = require("./lib/modules/errors");
 const { OrganizationMembers } = require("./lib/organization-members");
 const { Database } = require("./lib/database");
-const probot = require('probot')
+const probot = require('probot');
+const { Pool } = require("pg");
+// const PostHog = require('posthog-node')
+// const posthog = new PostHog(process.env.PH_PROJECT_API_KEY)
 
+
+const postgresPool = process.env.DEBUG ? new Pool({ database: 'ph-allc' }) : new Pool({ connectionString: process.env.DATABASE_URL })
+
+const db = new Database(postgresPool)
 
 const organizationMembers = new OrganizationMembers()
-const db = new Database()
 
+class ProbotServer {
 
+  constructor(app) {
+    this.app = app
+    this.probotServer = null
+  }
 
+  async startServer() {
+    console.log('Starting Probot server...')
+    this.probotServer = await probot.run(this.app)
+  }
 
-/**
- * @param {import('probot').Probot} app
- */
-module.exports = (app) => {
+  async stopServer() {
+    if (this.probotServer) {
+      console.log('\nGracefully shutting down Probot server...')
+      await this.probotServer.stop()
+    }
+  }
+
+}
+
+const probotServer = new ProbotServer((app) => {
   app.on("issue_comment.created", async (context) => {
     if (isMessageByApp(context)) return;
     if (!isMessageForApp(context)) return;
@@ -109,9 +130,15 @@ module.exports = (app) => {
       log.info(meta, `${meta.accountLogin}: ${name} ${action}`);
     }
   );
+})
 
-  app.onAny((a) => {
-    console.log(a)
+probotServer.startServer()
+
+for (const signal of ['SIGINT', 'SIGTERM', 'SIGHUP']) {
+  process.on(signal, async () => {
+    await probotServer.stopServer()
+
+    console.log('Gracefully shutting down Postgres pool...')
+    await postgresPool.end()
   })
-};
-
+}
