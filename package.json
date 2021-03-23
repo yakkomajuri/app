@@ -21,7 +21,6 @@
   "dependencies": {
     "@posthog/all-contributors-cli": "0.0.1",
     "compromise": "^11.13.0",
-    "forever": "^3.0.4",
     "mailgun-js": "^0.22.0",
     "node-fetch": "^2.6.1",
     "pg": "^8.5.1",
