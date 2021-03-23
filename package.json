@@ -13,7 +13,7 @@
   ],
   "scripts": {
     "start": "node ./app.js",
-    "start-prod": "npm install && forever start ./app.js",
+    "start-prod": "yarn && forever start ./app.js",
     "dev": "DEBUG=1 node ./app.js",
     "lint": "prettier --check '{src,test}/**/*.{js,json}' '*.{md,json,js}' 'contributing/*.md' '.github/**/*.{yml,md}'",
     "lint:fix": "prettier --write '{src,test}/**/*.{js,json}' '*.{md,json,js}' 'contributing/*.md' '.github/**/*.{yml,md}'",
