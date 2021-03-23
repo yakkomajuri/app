@@ -4,9 +4,14 @@ const CommentReply = require("./lib/modules/comment-reply");
 const { processIssueComment, processContribution } = require("./lib/process-issue-comment");
 const { AllContributorBotError } = require("./lib/modules/errors");
 const { OrganizationMembers } = require("./lib/organization-members");
+const { Database } = require("./lib/database");
+const probot = require('probot')
 
 
 const organizationMembers = new OrganizationMembers()
+const db = new Database()
+
+
 
 
 /**
@@ -36,6 +41,9 @@ module.exports = (app) => {
     } finally {
       await commentReply.send();
     }
+
+    await db.handleNewContribution('')
+
   });
 
   app.on("pull_request.closed", async (context) => {
@@ -101,4 +109,9 @@ module.exports = (app) => {
       log.info(meta, `${meta.accountLogin}: ${name} ${action}`);
     }
   );
+
+  app.onAny((a) => {
+    console.log(a)
+  })
 };
+

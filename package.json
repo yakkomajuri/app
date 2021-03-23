@@ -22,6 +22,7 @@
     "compromise": "^11.13.0",
     "pg": "^8.5.1",
     "pino": "^6.9.0",
+    "posthog-node": "^1.0.7",
     "probot": "^11.0.1",
     "smee-client": "^1.2.2"
   },
