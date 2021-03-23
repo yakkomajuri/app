@@ -10,7 +10,7 @@ const { Pool } = require("pg");
 
 
 
-const postgresPool = process.env.DEBUG ? new Pool({ database: 'ph-allc' }) : new Pool({ connectionString: process.env.DATABASE_URL, ssl: true })
+const postgresPool = process.env.DEBUG ? new Pool({ database: 'ph-allc' }) : new Pool({ connectionString: process.env.DATABASE_URL, ssl: { rejectUnauthorized: false } })
 
 const db = new Database(postgresPool)
 
