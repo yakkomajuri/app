@@ -46,7 +46,7 @@ const probotServer = new ProbotServer((app) => {
     // process comment and reply
     const commentReply = new CommentReply(context);
     try {
-      await processIssueComment({ context, commentReply });
+      await processIssueComment({ context, commentReply, db });
     } catch (error) {
       const isKnownError = error instanceof AllContributorBotError;
       if (!isKnownError) {
@@ -63,7 +63,6 @@ const probotServer = new ProbotServer((app) => {
       await commentReply.send();
     }
 
-    await db.handleNewContribution('hello')
 
   });
 
@@ -87,8 +86,9 @@ const probotServer = new ProbotServer((app) => {
       await processContribution({
         who,
         log,
+        db,
         contributions: ["code"],
-        context: context 
+        context: context
       })
     } catch (error) {
       const isKnownError = error instanceof AllContributorBotError;
