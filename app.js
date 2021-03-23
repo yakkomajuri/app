@@ -7,8 +7,7 @@ const { OrganizationMembers } = require("./lib/organization-members");
 const { Database } = require("./lib/database");
 const probot = require('probot');
 const { Pool } = require("pg");
-// const PostHog = require('posthog-node')
-// const posthog = new PostHog(process.env.PH_PROJECT_API_KEY)
+
 
 
 const postgresPool = process.env.DEBUG ? new Pool({ database: 'ph-allc' }) : new Pool({ connectionString: process.env.DATABASE_URL })
