@@ -18,7 +18,7 @@
     "test": "jest --coverage"
   },
   "dependencies": {
-    "@posthog/all-contributors-cli": "^0.0.0-semantically-released",
+    "@posthog/all-contributors-cli": "0.0.1",
     "compromise": "^11.13.0",
     "pg": "^8.5.1",
     "pino": "^6.9.0",

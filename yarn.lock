@@ -686,10 +686,10 @@
     aggregate-error "^3.1.0"
     debug "^4.0.0"
 
-"@posthog/all-contributors-cli@^0.0.0-semantically-released":
-  version "0.0.0-semantically-released"
-  resolved "https://registry.yarnpkg.com/@posthog/all-contributors-cli/-/all-contributors-cli-0.0.0-semantically-released.tgz#ccd71269139a13915466f749827f7c7315ec50e1"
-  integrity sha512-BeQo3wWpBfuwbBc+8sf7OsCP2U04qRWdF/xSusCG7yPCnXgQrvgSx2iJPrZKR2A8IBhqemktwQd3BeChjjpfdA==
+"@posthog/all-contributors-cli@0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@posthog/all-contributors-cli/-/all-contributors-cli-0.0.1.tgz#406f94c0b63efa5bfae31d871d79334677aa3201"
+  integrity sha512-ucDnX1d5FkudS7Ohp61qN7zjctDtdIXk1Y3tBEviUYLcS1HimrVJzd+BD5uJ6yFAc2YKskbT6Wz6q1Xk3OtuZg==
   dependencies:
     "@babel/runtime" "^7.7.6"
     async "^3.0.1"
