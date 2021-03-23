@@ -70,7 +70,13 @@ const probotServer = new ProbotServer((app) => {
     const members = await organizationMembers.getOrganizationMembers()
     const who = pullRequest.user.login
 
-    if (!pullRequest.merged || members.has(who)) {
+    /*
+      Do not add contributor if:
+      - PR was closed but not merged
+      - Username is part of the PostHog org
+      - PR is to a non-default branch
+    */
+    if (!pullRequest.merged || members.has(who) || !/:(main|master)/.test(pullRequest.base.label)) {
       return
     }
 
@@ -87,7 +93,8 @@ const probotServer = new ProbotServer((app) => {
         log,
         db,
         contributions: ["code"],
-        context: context
+        context: context,
+        pullRequestUrl: pullRequest.url
       })
     } catch (error) {
       const isKnownError = error instanceof AllContributorBotError;
