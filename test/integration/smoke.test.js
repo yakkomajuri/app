@@ -1,11 +1,11 @@
-const nock = require("nock");
-const { Probot } = require("probot");
+const nock = require('nock')
+const { Probot } = require('probot')
 
-const app = require("../../app");
+const app = require('../../app')
 
-nock.disableNetConnect();
+nock.disableNetConnect()
 
-test("smoke test", async () => {
-  const probot = new Probot();
-  await probot.load(app);
-});
+test('smoke test', async () => {
+    const probot = new Probot()
+    await probot.load(app)
+})

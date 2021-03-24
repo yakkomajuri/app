@@ -1,9 +1,9 @@
 {
-  "action": "created",
-  "comment": {
-    "body": "Unrelated comment"
-  },
-  "sender": {
-    "login": "octocat"
-  }
+    "action": "created",
+    "comment": {
+        "body": "Unrelated comment"
+    },
+    "sender": {
+        "login": "octocat"
+    }
 }

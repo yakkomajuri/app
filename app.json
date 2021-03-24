@@ -4,9 +4,7 @@
     "repository": "https://github.com/yakkomajuri/app",
     "logo": "https://posthog.com/images/36f8ad157f42d4d48dc1de1db45802e1/posthog-icon-color.svg",
     "buildpacks": [{ "url": "heroku/nodejs" }],
-    "addons": [
-        "heroku-postgresql"
-    ],
+    "addons": ["heroku-postgresql"],
     "formation": {
         "bot": {
             "quantity": 1
