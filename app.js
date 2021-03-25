@@ -41,6 +41,12 @@ const probotServer = new ProbotServer((app) => {
         if (isMessageByApp(context)) return
         if (!isMessageForApp(context)) return
 
+        const repoOwner = context.issue.repository.owner.login
+
+        if (process.env.ALLOWED_ORGS && !process.env.ALLOWED_ORGS.split(',').includes(repoOwner)) {
+            return
+        }
+
         // process comment and reply
         const commentReply = new CommentReply(context)
         try {
@@ -62,6 +68,14 @@ const probotServer = new ProbotServer((app) => {
 
     app.on('pull_request.closed', async (context) => {
         const pullRequest = context.payload.pull_request
+
+        const repoOwner = pullRequest.base.repo.owner.login
+
+        if (process.env.ALLOWED_ORGS && !process.env.ALLOWED_ORGS.split(',').includes(repoOwner)) {
+            return
+        }
+
+
         const members = await organizationMembers.getOrganizationMembers()
         const who = pullRequest.user.login
 
