@@ -41,7 +41,7 @@ const probotServer = new ProbotServer((app) => {
         if (isMessageByApp(context)) return
         if (!isMessageForApp(context)) return
 
-        const repoOwner = context.issue.repository.owner.login
+        const repoOwner = context.payload.issue.repository.owner.login
 
         console.log(process.env.ALLOWED_ORGS.split(','))
         if (process.env.ALLOWED_ORGS && !process.env.ALLOWED_ORGS.split(',').includes(repoOwner)) {
