@@ -43,7 +43,6 @@ const probotServer = new ProbotServer((app) => {
 
         const repoOwner = context.payload.repository.owner.login
 
-        console.log(process.env.ALLOWED_ORGS.split(','))
         if (process.env.ALLOWED_ORGS && !process.env.ALLOWED_ORGS.split(',').includes(repoOwner)) {
             return
         }
