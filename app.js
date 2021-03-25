@@ -2,11 +2,12 @@ const isMessageByApp = require('./lib/is-message-by-app')
 const isMessageForApp = require('./lib/is-message-for-app')
 const CommentReply = require('./lib/modules/comment-reply')
 const { processIssueComment, processContribution } = require('./lib/process-issue-comment')
+const { pullRequestContainsLabel } = require('./lib/utils')
 const { AllContributorBotError } = require('./lib/modules/errors')
 const { OrganizationMembers } = require('./lib/organization-members')
 const { Database } = require('./lib/database')
-const probot = require('probot')
 const { Pool } = require('pg')
+const probot = require('probot')
 
 const postgresPool = process.env.DEBUG
     ? new Pool({ database: 'ph-allc' })
@@ -65,11 +66,11 @@ const probotServer = new ProbotServer((app) => {
         const who = pullRequest.user.login
 
         /*
-      Do not add contributor if:
-      - PR was closed but not merged
-      - Username is part of the PostHog org
-      - PR is to a non-default branch
-    */
+        *  Do not add contributor if:
+        *  - PR was closed but not merged
+        *  - Username is part of the PostHog org
+        *  - PR is to a non-default branch
+        */
         if (!pullRequest.merged || members.has(who) || !/:(main|master)/.test(pullRequest.base.label)) {
             return
         }
@@ -88,6 +89,7 @@ const probotServer = new ProbotServer((app) => {
                 contributions: ['code'],
                 context: context,
                 pullRequestUrl: pullRequest.html_url,
+                extraMerch: pullRequestContainsLabel(pullRequest, 'extra merch')
             })
         } catch (error) {
             const isKnownError = error instanceof AllContributorBotError
@@ -102,10 +104,10 @@ const probotServer = new ProbotServer((app) => {
             action === 'created'
                 ? repositories.length
                 : action === 'deleted'
-                ? -repositories.length
-                : repositories_added
-                ? repositories_added.length - repositories_removed.length
-                : 0
+                    ? -repositories.length
+                    : repositories_added
+                        ? repositories_added.length - repositories_removed.length
+                        : 0
 
         const meta = {
             event: name,
