@@ -44,6 +44,8 @@ const probotServer = new ProbotServer((app) => {
         const members = await organizationMembers.getOrganizationMembers()
 
         // Only org members can request contributors be added
+
+        console.log(context.payload.issue.user.login, Array.from(members))
         if (!members.has(context.payload.issue.user.login)) {
             return
         }
