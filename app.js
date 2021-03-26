@@ -41,6 +41,13 @@ const probotServer = new ProbotServer((app) => {
         if (isMessageByApp(context)) return
         if (!isMessageForApp(context)) return
 
+        const members = await organizationMembers.getOrganizationMembers()
+
+        // Only org members can request contributors be added
+        if (!members.has(context.payload.issue.user.login)) {
+            return
+        }
+
         const repoOwner = context.payload.repository.owner.login
 
         if (process.env.ALLOWED_ORGS && !process.env.ALLOWED_ORGS.split(',').includes(repoOwner)) {
