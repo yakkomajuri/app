@@ -43,9 +43,11 @@ const probotServer = new ProbotServer((app) => {
 
         const members = await organizationMembers.getOrganizationMembers()
 
-        console.log(process.env.ALLOWED_ORGS.split(','), userWhoWroteComment)
         // Only org members can request contributors be added
         const userWhoWroteComment = context.payload.issue.user.login
+
+        console.log(process.env.ALLOWED_ORGS.split(','), userWhoWroteComment)
+
         if (userWhoWroteComment !== 'yakkomajuri' && !members.has(userWhoWroteComment)) {
             console.log('I RETURNED HERE')
             return
