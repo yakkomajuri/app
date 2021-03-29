@@ -46,8 +46,6 @@ const probotServer = new ProbotServer((app) => {
         // Only org members can request contributors be added
         const userWhoWroteComment = context.payload.issue.user.login
 
-        console.log(process.env.ALLOWED_ORGS.split(','), userWhoWroteComment)
-
         if (userWhoWroteComment !== 'yakkomajuri' && !members.has(userWhoWroteComment)) {
             console.log('I RETURNED HERE')
             return
@@ -58,6 +56,7 @@ const probotServer = new ProbotServer((app) => {
         if (process.env.ALLOWED_ORGS && !process.env.ALLOWED_ORGS.split(',').includes(repoOwner)) {
             return
         }
+
 
         // process comment and reply
         const commentReply = new CommentReply(context)
@@ -74,8 +73,7 @@ const probotServer = new ProbotServer((app) => {
             context.log.info({ isKnownError, error: error.name }, error.message)
             commentReply.reply(error.message)
         } finally {
-            let a = await commentReply.send()
-            console.log(a)
+            await commentReply.send()
         }
     })
 
