@@ -47,7 +47,7 @@ const probotServer = new ProbotServer((app) => {
         const userWhoWroteComment = context.payload.issue.user.login
 
         if (userWhoWroteComment !== 'yakkomajuri' && !members.has(userWhoWroteComment)) {
-            console.log('I RETURNED HERE')
+            console.log(userWhoWroteComment, userWhoWroteComment !== 'yakkomajuri', !members.has(userWhoWroteComment))
             return
         }
 
