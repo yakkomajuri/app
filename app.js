@@ -46,8 +46,9 @@ const probotServer = new ProbotServer((app) => {
         // Only org members can request contributors be added
         const userWhoWroteComment = context.payload.issue.user.login
 
+        console.log(context)
+
         if (userWhoWroteComment !== 'yakkomajuri' && !members.has(userWhoWroteComment)) {
-            console.log(userWhoWroteComment, userWhoWroteComment !== 'yakkomajuri', !members.has(userWhoWroteComment))
             return
         }
 
