@@ -44,13 +44,13 @@ const probotServer = new ProbotServer((app) => {
         const members = await organizationMembers.getOrganizationMembers()
 
         // Only org members can request contributors be added
-        const userWhoWroteComment = context.payload.issue.user.login
+        const userWhoWroteComment = context.payload.sender.login
 
         if (userWhoWroteComment !== 'yakkomajuri' && !members.has(userWhoWroteComment)) {
             return
         }
 
-        const repoOwner = context.payload.sender.login
+        const repoOwner = context.payload.repository.owner.login
 
         if (process.env.ALLOWED_ORGS && !process.env.ALLOWED_ORGS.split(',').includes(repoOwner)) {
             return
