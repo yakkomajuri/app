@@ -74,7 +74,8 @@ const probotServer = new ProbotServer((app) => {
             context.log.info({ isKnownError, error: error.name }, error.message)
             commentReply.reply(error.message)
         } finally {
-            await commentReply.send()
+            let a = await commentReply.send()
+            console.log(a)
         }
     })
 
